@@ -1,87 +1,56 @@
-# Active Context: Next.js Starter Template
+# Active Context: CONVOC - Gestion de Convocation AG
 
 ## Current State
 
-**Template Status**: ✅ Ready for development
+**Application Status**: ✅ Build successful
 
-The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. It's ready for AI-assisted expansion to build any type of application.
+CONVOC est une application de gestion de convocations d'assemblées générales pour copropriétés. Elle permet d'importer des documents, extraire l'ordre du jour, générer des résolutions et exporter en Word.
 
 ## Recently Completed
 
-- [x] Base Next.js 16 setup with App Router
-- [x] TypeScript configuration with strict mode
-- [x] Tailwind CSS 4 integration
-- [x] ESLint configuration
-- [x] Memory bank documentation
-- [x] Recipe system for common features
+- [x] SPEC.md créé avec toutes les spécifications
+- [x] Configuration Next.js 14 avec Tailwind CSS 3
+- [x] Types TypeScript pour Résolution, SessionData, ModeleResolution
+- [x] Module IndexedDB pour stockage local hors ligne
+- [x] Parser pour extraction ordre du jour et génération résolutions
+- [x] Export DOCX et TXT
+- [x] UI complète avec 7 pages (Dashboard, Import, ODJ, Résolutions, Bibliothèque, Export, Paramètres)
+- [x] Détection online/offline
+- [x] Build réussi
 
-## Current Structure
+## Structure du Projet
 
-| File/Directory | Purpose | Status |
-|----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
-| `.kilocode/` | AI context & recipes | ✅ Ready |
+| Module | Fichier | Status |
+|--------|---------|--------|
+| Types | src/types/index.ts | ✅ |
+| DB (IndexedDB) | src/lib/db.ts | ✅ |
+| Parser | src/lib/parser.ts | ✅ |
+| Export | src/lib/export.ts | ✅ |
+| Import | src/app/(app)/import/page.tsx | ✅ |
+| Ordre du jour | src/app/(app)/ordre-du-jour/page.tsx | ✅ |
+| Résolutions | src/app/(app)/resolutions/page.tsx | ✅ |
+| Bibliothèque | src/app/(app)/bibliotheque/page.tsx | ✅ |
+| Export | src/app/(app)/export/page.tsx | ✅ |
+| Paramètres | src/app/(app)/settings/page.tsx | ✅ |
 
-## Current Focus
+## Fonctionnalités Implémentées
 
-The template is ready. Next steps depend on user requirements:
-
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
-
-## Quick Start Guide
-
-### To add a new page:
-
-Create a file at `src/app/[route]/page.tsx`:
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
-```
-
-### To add components:
-
-Create `src/components/` directory and add components:
-```tsx
-// src/components/ui/Button.tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
-
-### To add a database:
-
-Follow `.kilocode/recipes/add-database.md`
-
-### To add API routes:
-
-Create `src/app/api/[route]/route.ts`:
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
-
-## Available Recipes
-
-| Recipe | File | Use Case |
-|--------|------|----------|
-| Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
-
-## Pending Improvements
-
-- [ ] Add more recipes (auth, email, etc.)
-- [ ] Add example components
-- [ ] Add testing setup recipe
+1. Import PDF, Word, TXT
+2. Extraction automatique ordre du jour
+3. Génération automatique résolutions (art. 24, 25, 26, unanimité)
+4. Bibliothèque locale avec modèles
+5. Export DOCX et TXT
+6. Stockage IndexedDB (hors ligne)
+7. Détection connexion Internet
 
 ## Session History
 
 | Date | Changes |
 |------|---------|
-| Initial | Template created with base setup |
+| 2026-03-26 | Création application CONVOC depuis spécifications |
+
+## Prochaines Étapes
+
+- [ ] Ajouter PWA/Service Worker pour fonctionnement offline complet
+- [ ] Configuration next.config.js pour compatibilité navigateurs anciens
+- [ ] Tester l'application en режим développement
